@@ -17,6 +17,11 @@ def extrair_por_geometria(caminho_pdf):
         # sem você precisar "caçar" palavras soltas no texto.
         return json.dumps(tabela, indent=4, ensure_ascii=False)
 
+"""
+TODO: def extrair_por_regex(caminho_pdf) -> a ser executada quando extrair_por_geometria nos retornar um null
+normalizar o output do json para coincidirem, nao importando por qual funcao ela passou
+"""
+
 # Teste com a nota de Itajuípe, que é bem quadriculada
 print(extrair_por_geometria(NOTA))
 
