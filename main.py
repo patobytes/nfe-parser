@@ -22,6 +22,21 @@ def extrair_por_geometria(caminho_pdf):
         # Se ele encontrar a estrutura de grade, os dados vêm organizados
         # sem você precisar "caçar" palavras soltas no texto.
         return json.dumps(tabela, indent=4, ensure_ascii=False)
+    
+def extrair_por_regex(caminho_pdf):
+    
+    #fazer logica de extrair usando regex
+
+    return    
+
+def extrair(caminho_pdf):
+    
+    """
+    caso extrair_por_geometria() retorne um null, extrair_por_regex()
+    """
+    
+    return
+
 
 """
 TODO: def extrair_por_regex(caminho_pdf) -> a ser executada quando extrair_por_geometria nos retornar um null
