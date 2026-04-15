@@ -1,7 +1,13 @@
 import pdfplumber
 import json
 
-NOTA = "NF 1 - BANACH E FRANCA - CELINALDO ALVES DOS SANTOS - R$ 100,00 - 06.03.2026.pdf"
+arquivos_pdf = {
+    "01": "NF 1 - ANA CAROLINA LOPES OLIVEIRA FIGUEIREDO.pdf",
+    "02": "NF 1 - BANACH E FRANCA - CELINALDO ALVES DOS SANTOS - R$ 100,00 - 06.03.2026.pdf",
+    "03": "NF 3 - DANIEL GONCALVES RANGEL - DRIELLE MILAGRE DOS SANTOS - R$ 150,00 - 24.02.2026.pdf",
+    "04": "NF 5 - F E K COMERCIO E SERVICOS VETERINARIOS.pdf"
+}
+
 
 def extrair_por_geometria(caminho_pdf):
     with pdfplumber.open(caminho_pdf) as pdf:
@@ -22,9 +28,9 @@ TODO: def extrair_por_regex(caminho_pdf) -> a ser executada quando extrair_por_g
 normalizar o output do json para coincidirem, nao importando por qual funcao ela passou
 """
 
-# Teste com a nota de Itajuípe, que é bem quadriculada
-print(extrair_por_geometria(NOTA))
+for i in arquivos_pdf:
+    arquivo = arquivos_pdf[i]
 
-# Se quiser salvar o resultado em um arquivo .json com o mesmo nome da nota:
-with open("resultado_nota.json", "w", encoding="utf-8") as f:
-    f.write(extrair_por_geometria(NOTA))
+    with open(arquivo+".json", "w", encoding="utf-8") as f:
+        f.write(extrair_por_geometria(arquivo))
+        print("extracted '"+arquivo+"' to json")
